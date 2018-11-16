@@ -20,11 +20,15 @@ import com.baomidou.springboot.entity.enums.AgeEnum;
 import com.baomidou.springboot.entity.enums.PhoneEnum;
 import com.baomidou.springboot.service.IUserService;
 
+import cn.org.zhixiang.annotation.CheckTypeEnum;
+import cn.org.zhixiang.annotation.ClassRateLimit;
+
 /**
  * 代码生成器，参考源码测试用例：
  * <p>
  * /mybatis-plus/src/test/java/com/baomidou/mybatisplus/test/generator/MysqlGenerator.java
  */
+@ClassRateLimit(limit = 5,refreshInterval=60,checkType = CheckTypeEnum.IP)
 @RestController
 @RequestMapping("/user")
 public class UserController extends ApiController {

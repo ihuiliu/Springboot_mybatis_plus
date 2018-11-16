@@ -8,12 +8,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import cn.org.zhixiang.annotation.EnableSyjRateLimit;
+
 /**
  * mybatis-plus Spring Boot 测试 Demo<br>
  * 文档：http://mp.baomidou.com<br>
  */
 @EnableTransactionManagement
 @SpringBootApplication
+@EnableSyjRateLimit
 @ComponentScan(basePackages = {
         "com.baomidou.springboot.config",
         "com.baomidou.springboot.controller",

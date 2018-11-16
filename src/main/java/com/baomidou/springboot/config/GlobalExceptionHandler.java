@@ -18,6 +18,8 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.enums.ApiErrorCode;
 import com.baomidou.mybatisplus.extension.exceptions.ApiException;
 
+import cn.org.zhixiang.exception.BusinessException;
+
 /**
  * <p>
  * 通用 Api Controller 全局异常处理
@@ -67,6 +69,11 @@ public class GlobalExceptionHandler {
                 return R.restResult(jsonList, ApiErrorCode.FAILED);
             }
         }
+        if (e instanceof BusinessException) {
+        	String message= (String) e.getMessage();
+        	return R.failed(message);
+        }
+        
 
         /**
          * 系统内部异常，打印异常栈
